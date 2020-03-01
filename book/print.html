@@ -1,0 +1,1263 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Shipyard User's Guide</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="welcome.html">Welcome</a></li><li class="expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="expanded "><a href="fundamentals.html"><strong aria-hidden="true">2.</strong> Fundamentals</a></li><li><ol class="section"><li class="expanded "><a href="fundamentals/world.html"><strong aria-hidden="true">2.1.</strong> Create a World</a></li><li class="expanded "><a href="fundamentals/borrow.html"><strong aria-hidden="true">2.2.</strong> Borrow the World</a></li><li class="expanded "><a href="fundamentals/add-entities.html"><strong aria-hidden="true">2.3.</strong> Add Entities</a></li><li class="expanded "><a href="fundamentals/delete-entities.html"><strong aria-hidden="true">2.4.</strong> Delete Entities</a></li><li class="expanded "><a href="fundamentals/add-components.html"><strong aria-hidden="true">2.5.</strong> Add Components</a></li><li class="expanded "><a href="fundamentals/remove-components.html"><strong aria-hidden="true">2.6.</strong> Remove Components</a></li><li class="expanded "><a href="fundamentals/delete-components.html"><strong aria-hidden="true">2.7.</strong> Delete Components</a></li><li class="expanded "><a href="fundamentals/get-and-modify.html"><strong aria-hidden="true">2.8.</strong> Get and Modify Components</a></li><li class="expanded "><a href="fundamentals/iterators.html"><strong aria-hidden="true">2.9.</strong> Iterators</a></li><li class="expanded "><a href="fundamentals/systems.html"><strong aria-hidden="true">2.10.</strong> Systems</a></li><li class="expanded "><a href="fundamentals/all-together-now.html"><strong aria-hidden="true">2.11.</strong> All Together Now</a></li></ol></li><li class="expanded "><a href="going-further.html"><strong aria-hidden="true">3.</strong> Going Further</a></li><li><ol class="section"><li class="expanded "><a href="going-further/world-insides.html"><strong aria-hidden="true">3.1.</strong> What's inside a World?</a></li><li class="expanded "><a href="going-further/parallelism.html"><strong aria-hidden="true">3.2.</strong> Parallelism</a></li><li class="expanded "><a href="going-further/packs.html"><strong aria-hidden="true">3.3.</strong> Packs</a></li><li class="expanded "><a href="going-further/other-component-storage.html"><strong aria-hidden="true">3.4.</strong> Other Components and Storages</a></li><li class="expanded "><a href="going-further/try-unchecked.html"><strong aria-hidden="true">3.5.</strong> Might want to try_ or go _unchecked</a></li><li class="expanded "><a href="going-further/syntactic-peculiarities.html"><strong aria-hidden="true">3.6.</strong> Syntactic Peculiarities</a></li></ol></li><li class="expanded "><a href="recipes.html"><strong aria-hidden="true">4.</strong> Recipes</a></li><li><ol class="section"><li class="expanded "><a href="recipes/hierarchy.html"><strong aria-hidden="true">4.1.</strong> Hierarchy</a></li></ol></li><li class="expanded "><a href="pilgrimage.html"><strong aria-hidden="true">5.</strong> Pilgrimage</a></li><li><ol class="section"><li class="expanded "><a href="pilgrimage/different-types-of-ecs.html"><strong aria-hidden="true">5.1.</strong> Different Types of ECS</a></li><li class="expanded "><a href="pilgrimage/more-resources.html"><strong aria-hidden="true">5.2.</strong> More Resources</a></li></ol></li><li class="expanded "><a href="contributors.html"><strong aria-hidden="true">6.</strong> Contributors</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Shipyard User's Guide</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#welcome-to-shipyard" id="welcome-to-shipyard">Welcome to Shipyard!</a></h1>
+<p><a href="https://github.com/leudz/shipyard">Shipyard</a> is an Entity Component System focused on usability and speed. An ECS is a great way to organize logic and data.</p>
+<p>There are two main benefits to using an ECS:</p>
+<ol>
+<li>Elegant approach for humans
+<ul>
+<li>Composition over inheritance</li>
+<li>Separation of concerns</li>
+<li>Less burdened by lifetimes</li>
+</ul>
+</li>
+<li>Optimal design for computers
+<ul>
+<li>Spatial locality</li>
+<li>Less pointer chasing</li>
+</ul>
+</li>
+</ol>
+<p>However, programming with an ECS requires thinking about data and logic in a different way than you might be used to. Also, the optimization techniques need explicit choice and tuning to get the greatest benefit (see <a href="./going-further/packs.html">Packs</a>)</p>
+<h1><a class="header" href="#how-does-it-work" id="how-does-it-work">How does it work?</a></h1>
+<p><code>EntityId</code> is just a newtype wrapping <code>u64</code>, it's just an index.</p>
+<p>Components hold data. Only data. No logic. They <em>can</em> of course contain methods but the ECS only sees the hard data.</p>
+<p>Systems do the heavy lifting: updating components, running side-effects, and integrating with other parts of the code.</p>
+<p>To know Shipyard differs from other ECS implementations, see <a href="./pilgrimage/different-types-of-ecs.html">Different Types of ECS</a>.</p>
+<h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
+<p>Just add it to Cargo.toml :)</p>
+<p>For WASM or single-threaded environments you'll need to turn off default features, and remember to add other features back in, like this:</p>
+<pre><code class="language-toml">shipyard = { features = [&quot;proc&quot;, &quot;serialization&quot;], default-features = false, git = &quot;https://github.com/leudz/shipyard.git&quot; }
+</code></pre>
+<h1><a class="header" href="#fundamentals" id="fundamentals">Fundamentals</a></h1>
+<p>Now that we're ready to use Shipyard, let's learn the basics!</p>
+<p>In order to avoid needless repetition, the following is assumed to be predefined in the whole section:</p>
+<pre><code class="language-rust noplaypen">struct Empty;
+
+#[derive(Debug)]
+struct Count(pub u32);
+
+#[derive(Debug)]
+struct Position {
+    x: f64,
+    y: f64
+}
+
+#[derive(Debug)]
+struct Velocity {
+    x: f64,
+    y: f64
+}
+
+#[derive(Debug)]
+pub struct Fruit {
+    name: &amp;'static str,
+    color: Color, 
+}
+
+impl Fruit {
+    pub fn new_apple(color: Option&lt;Color&gt;) -&gt; Self {
+        Fruit {
+            name: &quot;apple&quot;,
+            color: color.unwrap_or(Color::Red)
+        }
+    }
+    pub fn new_orange() -&gt; Self {
+        Fruit {
+            name: &quot;orange&quot;,
+            color: Color::Orange
+        }
+    }
+}
+
+#[derive(Debug)]
+pub enum Color {
+    Red,
+    Orange,
+    Green
+}
+</code></pre>
+<h1><a class="header" href="#create-a-world" id="create-a-world">Create a World</a></h1>
+<p><code>World</code> is Shipyard's core data-structure, it holds all data, knows how to process systems and all operations originate from one (or more).</p>
+<p>You can create one by using <code>default</code> or <code>new</code>:</p>
+<pre><code class="language-rust noplaypen">let world = World::default();
+let world = World::new();
+</code></pre>
+<p>No need to register components their storage will be created when we access them. </p>
+<p>Note that we didn't make <code>world</code> mutable, it's because all <code>World</code>'s methods take a shared reference. This makes <code>World</code> easier to use across threads.</p>
+<hr />
+<p>Now that we have a <code>World</code> that would be nice to be able to do something with it, it's what we'll see in the next chapter!</p>
+<h1><a class="header" href="#borrow-the-world" id="borrow-the-world">Borrow the World</a></h1>
+<p><code>borrow</code> is one of three ways to modify components and entities.<br />
+It has a single generic argument that let us request access to storage(s):</p>
+<pre><code class="language-rust noplaypen">let mut all_storages = world.borrow::&lt;AllStorages&gt;();
+</code></pre>
+<p>These accesses follow the same rules as Rust's borrowing, you can have as many shared accesses to a storage as you like or a single unique access. <code>AllStorages</code> being the exception, it's a unique access and prevents access to all other storage, even to the entities.</p>
+<p>When <code>borrow</code> executes it will borrow at runtime (like a <code>RefCell</code>) all the requested storages plus a shared access to <code>AllStorages</code> and return what we call views. This is why asking for <code>AllStorages</code> means you can't ask for anything else - otherwise you'd have a shared and a unique access to <code>AllStorages</code>. Importantly, this runtime borrow happens at each call, while it's cheap if you're using a view multiple times, you should store it in a variable rather than calling <code>borrow</code> repeatedly.</p>
+<p>You can request multiple accesses using a tuple:</p>
+<pre><code class="language-rust noplaypen">let (mut entities, mut empties) = world.borrow::&lt;(EntitiesMut, &amp;mut Empty)&gt;();
+</code></pre>
+<p>We're using <code>EntitiesMut</code> and what looks like a reference to <code>Empty</code> coming from nowhere. This reference is just a code that Shipyard knows to interpret.</p>
+<p>This code works with all these types (plus a few more we'll see later):</p>
+<ul>
+<li><code>AllStorages</code> - unique access to a storage that contains the other storages</li>
+<li><code>Entities</code> - shared access of the storage holding the entities</li>
+<li><code>EntitiesMut</code> - same as above but unique access</li>
+<li><code>&amp;T</code> - shared access to the storage holding <code>T</code>s</li>
+<li><code>&amp;mut T</code> - same as above but unique access</li>
+</ul>
+<p>We'll see what we can do with each of them in the following chapters. With this knowledge you'll be able to tell which one you need to access.</p>
+<hr />
+<p>thanks to <code>borrow</code> we can add entities and components to the <code>World</code>!</p>
+<h1><a class="header" href="#add-entities" id="add-entities">Add Entities</a></h1>
+<p>To add entities we'll use the view to the entities' storage: <code>EntitiesViewMut</code>.</p>
+<h3><a class="header" href="#add-an-entity-with-a-single-component" id="add-an-entity-with-a-single-component">Add an entity with a single component</a></h3>
+<pre><code class="language-rust noplaypen">let (mut entities, mut empties) = world.borrow::&lt;(EntitiesMut, &amp;mut Empty)&gt;();
+
+let entity = entities.add_entity(&amp;mut empties, Empty);
+</code></pre>
+<p><code>add_entity</code> takes two arguments, a unique reference to the view you want to add a component to and the component.</p>
+<p>It'll return an <code>EntityId</code>, a handle to the newly created entity.</p>
+<h3><a class="header" href="#add-an-entity-with-multiple-components" id="add-an-entity-with-multiple-components">Add an entity with multiple components</a></h3>
+<p>We can make an entity with multiple components of course, for that we'll just have to use tuples for both arguments:</p>
+<pre><code class="language-rust noplaypen">let (mut entities, mut empties, mut counts) = world.borrow::&lt;(EntitiesMut, &amp;mut Empty, &amp;mut Count)&gt;();
+
+let entity = entities.add_entity((&amp;mut empties, &amp;mut counts), (Empty, Count(0)));
+</code></pre>
+<h3><a class="header" href="#add-an-entity-with-no-component" id="add-an-entity-with-no-component">Add an entity with no component</a></h3>
+<p>We can use <code>()</code> to create an empty entity and add components to it later.</p>
+<pre><code class="language-rust noplaypen">let entity = world.borrow::&lt;EntitiesMut&gt;().add_entity((), ());
+</code></pre>
+<h1><a class="header" href="#delete-entities" id="delete-entities">Delete Entities</a></h1>
+<p>Deleting an entity means take it away from the entities' storage as well as deleting all its components.</p>
+<pre><code class="language-rust noplaypen">world.borrow::&lt;AllStorages&gt;.delete(entity_id);
+</code></pre>
+<p><code>delete</code> takes a single <code>EntityId</code> of the entity you want to delete. It returns a <code>bool</code>, <code>true</code> if the entity was present in the entities' storage before calling the method.</p>
+<h1><a class="header" href="#add-components" id="add-components">Add Components</a></h1>
+<p>An entity can only contain a single instance of a particular component type.</p>
+<p>However there's no need to check for this - adding a component to an entity will simply replace the component if it already exists.</p>
+<h3><a class="header" href="#add-a-single-component-to-an-entity" id="add-a-single-component-to-an-entity">Add a single component to an entity</a></h3>
+<pre><code class="language-rust noplaypen">let (entities, mut positions) = world.borrow::&lt;(Entities, &amp;mut Position)&gt;();
+
+entities.add_component(
+    &amp;mut positions,
+    Position { x: 0.0, y: 10.0 },
+    entity_id,
+);
+</code></pre>
+<p>You'll notice that we use <code>Entities</code> and not <code>EntitiesMut</code> it's because we just have to make sure the id is alive and not deleted. We could use <code>EntitiesMut</code> of course but it's not needed.</p>
+<p>Then it's exactly like <code>add_entity</code>, we pass the storage and the component. We also need an id this time since we're not creating it.</p>
+<h3><a class="header" href="#add-a-bunch-of-components-to-an-entity" id="add-a-bunch-of-components-to-an-entity">Add a bunch of components to an entity</a></h3>
+<p>For multiple components we use a tuple just like <code>add_entity</code>.</p>
+<pre><code class="language-rust noplaypen">let (entities, mut positions, mut fruits) = world.borrow::&lt;(Entities, &amp;mut Position, &amp;mut Fruit)&gt;();
+
+entities.add_component(
+    (&amp;mut positions, &amp;mut fruits),
+    (Position { x: 0.0, y: 10.0 }, Fruit::new_orange()),
+    entity_id,
+);
+</code></pre>
+<h1><a class="header" href="#remove-components" id="remove-components">Remove Components</a></h1>
+<p>We use the word &quot;remove&quot; and not &quot;delete&quot;, not because it would be repetitive but because these two operations have different meaning. A delete won't return anything while a remove will return the component(s).</p>
+<h3><a class="header" href="#remove-a-single-component" id="remove-a-single-component">Remove a single component</a></h3>
+<pre><code class="language-rust noplaypen">let mut counts = world.borrow::&lt;&amp;mut Count&gt;();
+
+let count = counts.remove(entity_id);
+</code></pre>
+<p>No need for <code>Entities</code> here, you can call the method directly on the view and give the id of the entity.</p>
+<h3><a class="header" href="#remove-a-bunch-of-components" id="remove-a-bunch-of-components">Remove a bunch of components</a></h3>
+<pre><code class="language-rust noplaypen">let (mut counts, mut empties) = world.borrow::&lt;(&amp;mut Count, &amp;mut Empty)&gt;();
+
+let (_count, _empty) = Remove::&lt;(Count, Empty)&gt;::remove((&amp;mut counts, &amp;mut empties), entity_id);
+</code></pre>
+<p>We have to use the explicit syntax in this case because we could be trying to remove just <code>Count</code>. We'll see later why we'd want that.</p>
+<h1><a class="header" href="#delete-components" id="delete-components">Delete Components</a></h1>
+<h3><a class="header" href="#delete-a-single-component" id="delete-a-single-component">Delete a single component</a></h3>
+<pre><code class="language-rust noplaypen">let mut counts = world.borrow::&lt;&amp;mut Count&gt;();
+
+counts.delete(entity_id);
+</code></pre>
+<h3><a class="header" href="#delete-a-bunch-of-components" id="delete-a-bunch-of-components">Delete a bunch of components</a></h3>
+<pre><code class="language-rust noplaypen">let (mut counts, mut empties) = world.borrow::&lt;(&amp;mut Count, &amp;mut Empty)&gt;();
+
+Delete::&lt;(Count, Empty)&gt;::delete((&amp;mut counts, &amp;mut empties), entity_id);
+</code></pre>
+<h3><a class="header" href="#delete-all-components" id="delete-all-components">Delete all components</a></h3>
+<p>Note that the entity won't be deleted, you'll be able to attach components to it again.</p>
+<pre><code class="language-rust noplaypen">let mut all_storages = world.borrow::&lt;AllStorages&gt;();
+
+all_storages.strip(entity_id);
+</code></pre>
+<h1><a class="header" href="#get-and-modify-components" id="get-and-modify-components">Get and Modify Components</a></h1>
+<p>To access or update the components of a single entity you can use <code>get</code>. It'll work with both shared and unique views.</p>
+<h3><a class="header" href="#update-a-single-component" id="update-a-single-component">Update a single component</a></h3>
+<pre><code class="language-rust noplaypen">let mut positions = world.borrow::&lt;&amp;mut Position&gt;();
+
+*(&amp;mut positions).get(entity_id).unwrap() = Position {
+    x: 5.0,
+    y: 6.0,
+};
+</code></pre>
+<p><code>get</code> will return an <code>Option&lt;&amp;T&gt;</code> when used with a <code>View&lt;T&gt;</code> and an <code>Option&lt;&amp;mut T&gt;</code> with a <code>ViewMut&lt;T&gt;</code>. You can also get an <code>Option&lt;&amp;T&gt;</code> from a <code>ViewMut&lt;T&gt;</code>, that's why we have to explicitly mutably borrow <code>positions</code>.</p>
+<p>For single views and if you're sure the entity has the component you want, you can index into it:</p>
+<pre><code class="language-rust noplaypen">let mut positions = world.borrow::&lt;&amp;mut Position&gt;();
+
+positions[entity_id] = Position {
+    x: 5.0,
+    y: 6.0,
+};
+</code></pre>
+<h3><a class="header" href="#update-a-bunch-of-components" id="update-a-bunch-of-components">Update a bunch of components</a></h3>
+<p>We can also mix and match shared and unique:</p>
+<pre><code class="language-rust noplaypen">let (mut positions, velocities) = world.borrow::&lt;(&amp;mut Position, &amp;Velocity)&gt;();
+
+if let Ok((pos, vel)) = (&amp;mut positions, &amp;velocities).get(entity_id) {
+    pos.x += vel.x;
+    pos.y += vel.y;
+}
+</code></pre>
+<h1><a class="header" href="#iterators" id="iterators">Iterators</a></h1>
+<p>Fast iteration is one of the most important features of an ECS.</p>
+<p>In Shipyard this is achieved using the <code>iter</code> method on view(s).</p>
+<h3><a class="header" href="#single-component" id="single-component">Single component</a></h3>
+<p>You can use it on a single view:</p>
+<pre><code class="language-rust noplaypen">let positions = world.borrow::&lt;&amp;Position&gt;();
+
+(&amp;positions).iter().for_each(|pos| {
+    dbg!(pos);
+});
+</code></pre>
+<p>This iterator will go through all <code>Position</code> components, very fast since they're all stored one next to the other, something computer really like nowadays.</p>
+<p>Unlike last chapter, no need to provide any <code>EntityId</code>. It's even the opposite, you can ask the iterator to tell you which entity each component is attached to using <code>with_id</code>:</p>
+<pre><code class="language-rust noplaypen">let positions = world.borrow::&lt;&amp;Position&gt;();
+
+(&amp;positions).iter().with_id().for_each(|(id, pos)| {
+    println!(&quot;Entity {:?} is at {:?}&quot;, id, pos);
+});
+</code></pre>
+<h3><a class="header" href="#multiple-components" id="multiple-components">Multiple components</a></h3>
+<p>While single views are useful, multiple views is where ECS shines:</p>
+<pre><code class="language-rust noplaypen">let (positions, fruits) = world.borrow::&lt;(&amp;Position, &amp;Fruit)&gt;();
+
+(&amp;positions, &amp;fruits).iter().for_each(|(pos, fruit)| {
+    println!(&quot;There is a {:?} at {:?}&quot;, pos, fruit);
+});
+</code></pre>
+<p>The iterator will only yield components from entities that have both <code>Position</code> and <code>Fruit</code> while ignoring the other.</p>
+<p>You can use views in any order but the same combination with the views in different positions might not yield components in the same order. In general you shouldn't expect any order from iterators.</p>
+<hr />
+<p>Iteration is only one of the main assets of an ECS, in the next chapter we'll take about another one, probably the most important one.</p>
+<h1><a class="header" href="#systems" id="systems">Systems</a></h1>
+<p>Systems are a great way to organize code.</p>
+<p>Here's an example:</p>
+<pre><code class="language-rust noplaypen">struct CreateEmpty;
+impl&lt;'a&gt; System&lt;'a&gt; for CreateEmpty {
+    type Data = (EntitiesMut, &amp;'a mut Empty);
+    
+    fn run((entities, empties): &lt;Self::Data as SystemData&gt;::View) { ... }
+}
+</code></pre>
+<p>We start with an empty struct to attach the implementation on.<br />
+We then implement <code>System</code>, using its <code>Data</code> associated type to specify which storages we want to access, just like <code>borrow</code>.<br />
+Lastly <code>run</code> will let us act on these storages. It has a single parameter: the views of the storages we requested. You can specify the parameter's type or use <code>&lt;Self::Data as SystemData&gt;::View</code> as it'll always work.<br />
+Note that there is no <code>self</code> of any kind, so even if <code>CreateEmpty</code> wasn't empty we couldn't access any of its fields.</p>
+<p>This syntax however isn't pretty, now that we've seen what they look like under the hood, we can use the macro:</p>
+<pre><code class="language-rust noplaypen">#[system(CreateEmpty)]
+fn run(entities: &amp;mut Entities, empties: &amp;mut Empty) { ... }
+</code></pre>
+<p>In addition to creating the struct and implementation for us, it'll take care of lifetimes and allow us to use <code>&amp;mut Entities</code> instead of <code>EntitiesMut</code> for example.</p>
+<p>We have a system, let's run it!</p>
+<pre><code class="language-rust noplaypen">world.run_system::&lt;CreateEmpty&gt;();
+</code></pre>
+<h3><a class="header" href="#workloads" id="workloads">Workloads</a></h3>
+<p>Running systems one by one works but a system carries a lot of information and it would be a shame not to take advantage of it.<br />
+A workload is a group of one or multiple systems that with a name.</p>
+<pre><code class="language-rust noplaypen">#[system(CreateEmpty)]
+fn run(entities: &amp;mut Entities, empties: &amp;mut Empty) { ... }
+
+#[system(DestroyEmpty)]
+fn run(entities: &amp;mut Entities, empties: &amp;mut Empty) { ... }
+
+world.add_workload&lt;(CreateEmpty, DestroyEmpty), _&gt;(&quot;Empty Cycle&quot;);
+</code></pre>
+<p>As opposite to <code>run_system</code>, workloads won't execute until we ask them to. They are instead stored in the <code>World</code> ready to be run again and again.</p>
+<pre><code class="language-rust noplaypen">world.run_workload(&quot;Empty Cycle&quot;);
+// or
+world.run_default();
+</code></pre>
+<p><code>run_default</code> will run the first workload added in the <code>World</code> or the one you choose with <code>set_default_workload</code>.</p>
+<p>There's a few points to keep in mind about workloads:</p>
+<ol>
+<li>Workloads will run their systems left-to-right or at the same time when possible. We call this systems parallelism: outer-parallelism, you can learn more about it in <a href="fundamentals/../going-further/parallelism.html">this chapter</a>.</li>
+<li>A workload cannot be modified once its defined. Think of it more as a one-time-setup thing than something you do dynamically at runtime. Workloads don't take up much memory so even if you make a few with similar systems it's not a problem.</li>
+</ol>
+<h3><a class="header" href="#anonymous-system" id="anonymous-system">Anonymous system</a></h3>
+<p>We've seen <code>borrow</code> and systems, there's a third (and last) way to modify the <code>World</code>: <code>run</code>.</p>
+<pre><code class="language-rust noplaypen">world.run::&lt;(EntitiesMut, &amp;mut Empty), _, _&gt;(|(entities, empties)| { ... });
+</code></pre>
+<p>It's kind of a mix between <code>borrow</code> and systems. We request the storages access, just like <code>borrow</code> and there's two additional generics.<br />
+The first one is for the returned value, as opposed to systems, <code>run</code> can return.<br />
+The second one is just the full type of the closure. This closure has just one parameter: the views of the requested storages.</p>
+<hr />
+<p>That's it for the fundamentals, congratulations!<br />
+In the next chapter we'll use everything we learned so far to make a small game.</p>
+<h1><a class="header" href="#all-together-now" id="all-together-now">All Together Now</a></h1>
+<p>This chapter will be available soon =)</p>
+<h1><a class="header" href="#going-further" id="going-further">Going Further</a></h1>
+<p>This section covers more advanced topics like parallelism or packs and how everything behaves to not be surprised by any function call.</p>
+<h1><a class="header" href="#whats-inside-a-world" id="whats-inside-a-world">What's inside a World?</a></h1>
+<p>In the last section we learned how to interact with <code>World</code> and access what's inside it without knowing what it is, let's change that!</p>
+<h3><a class="header" href="#storage" id="storage">Storage</a></h3>
+<p>Currently there exists only one type of storage: <code>SparseSet</code>. We're just going to focus on the implementation currently used in Shipyard.<br />
+It's a data-structure made of 3 vectors:</p>
+<ul>
+<li><code>sparse</code> contains indices (<code>usize</code>) to the <code>dense</code> vector</li>
+<li><code>dense</code> contains indices (<code>EntityId</code>) to the <code>sparse</code> vector</li>
+<li><code>data</code> contains the actual components</li>
+</ul>
+<p>When <code>sparse</code> and <code>dense</code> point to each other, the entity owns the component present in the <code>data</code> vector at the same <code>dense</code> index.<br />
+<code>dense</code> is always the same length as <code>data</code>, the number of components present in the storage.
+<code>sparse</code> on the other hand is more or less as big as the total number of entities created minus the number of entities deleted.<br />
+Let's look at an example:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+let (mut entities, mut u32s, mut f32s) = world.borrow::&lt;(EntitiesMut, &amp;mut u32, &amp;mut f32)&gt;();
+let entity0 = entities.add_entity(&amp;mut u32s, 10);
+let entity1 = entities.add_entity(&amp;mut f32s, 20.0);
+let entity2 = entities.add_entity(&amp;mut u32s, 30);
+</code></pre>
+<p>When we create the <code>World</code> there is no component storage in it, <code>borrow</code> will create an empty storage for <code>u32</code> and <code>f32</code>.
+We then create <code>entity0</code>, <code>u32</code>'s storage now looks like this:</p>
+<pre><code>sparse: [0]
+dense: [0]
+data: [10]
+</code></pre>
+<p><code>sparse[0]</code> and <code>dense[0]</code> point to each other, the entity owns a component in this storage.
+We add two more entities, now <code>u32</code> looks like this:</p>
+<pre><code>sparse: [0, 0, 1]
+dense: [0, 2]
+data: [10, 30]
+</code></pre>
+<p>We can see that <code>sparse[1]</code> got initialized with <code>0</code>, <code>entity1</code> doesn't have any <code>u32</code> component and <code>dense[0]</code> doesn't point back to it, all good.</p>
+<h3><a class="header" href="#entities" id="entities">Entities</a></h3>
+<p><code>Entities</code> is a simpler data structure, it's made of an <code>EntityId</code> vector and an optional tuple of two indices. This tuple points to the first and last deleted entity.<br />
+Each time an entity is added, the tuple is checked and in case it is <code>None</code> the entity is allocated at the end of the vector.<br />
+In case the tuple is <code>Some</code>, we'll use the oldest index for the entity and update the tuple.<br />
+But if <code>EntityId</code> was just an index, two entities could have the same id and very quickly, add - remove - add, we're back to the same index.</p>
+<p><code>EntityId</code> aren't just an index though, they have two parts: index and version.<br />
+When we delete an entity its version gets incremented and its index becomes part of the tuple.<br />
+This tuple only contains two elements however so we use their indices to form a linked list inside the vector of <code>EntityId</code>.
+Let's modify our previous example a little:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+let entity0;
+let entity1;
+{
+    let (mut entities, mut u32s, mut f32s) = world.borrow::&lt;(EntitiesMut, &amp;mut u32, &amp;mut f32)&gt;();
+    entity0 = entities.add_entity(&amp;mut u32s, 10);
+    entity1 = entities.add_entity(&amp;mut f32s, 20.0);
+    let entity2 = entities.add_entity(&amp;mut u32s, 30);
+}
+let mut all_storages = world.borrow::&lt;AllStorages&gt;();
+all_storages.delete(entity0);
+all_storages.delete(entity1);
+</code></pre>
+<p>This time we'll look at what happens in <code>Entities</code>:</p>
+<pre><code>ids: [
+    { index: 0, version: 0 },
+    { index: 1, version: 0 },
+    { index: 2, version: 0 }
+]
+deleted: None
+</code></pre>
+<p>Here we have added all three entities, then we delete <code>entity0</code>:</p>
+<pre><code>ids: [
+    { index: 0, version: 1 },
+    { index: 1, version: 0 },
+    { index: 2, version: 0 }
+]
+deleted: Some((0, 0))
+</code></pre>
+<p>Since there is just a single deleted entity it's both the most recent one and the oldest one.</p>
+<pre><code>ids: [
+    { index: 1, version: 1 },
+    { index: 1, version: 1 },
+    { index: 2, version: 0 }
+]
+deleted: Some((1, 0))
+</code></pre>
+<p>When <code>entity1</code> gets deleted, <code>ids[oldest].index</code> becomes <code>1</code> and we have a linked list.</p>
+<h3><a class="header" href="#entityid" id="entityid">EntityId</a></h3>
+<p>While only 64 bits, ids are very interesting, 48 bits are used for the index and the remaining 16 for the version.<br />
+Almost all ECS have this kind of id, the difference being the length of the id and version.<br />
+32 bits felt too small to fit the wildest use cases. A generic approach was discarded due to first - adding a generic everywhere and second - making actions between worlds more difficult.<br />
+Versions sometimes take more space because who needs 48 bits for the index? But at the same time who needs more than 16 bits for the version?<br />
+In the exceptional event you add and remove entities to the same index and reach the version limit, the <code>World</code> won't stop. This index will be considered dead (simply by not adding it the linked list) and you'll get an entity at another index.<br />
+Plus we add and delete from opposite sides of the linked list making the version increase slower in general.</p>
+<hr />
+<p>In the next chapter we'll look into parallelism.</p>
+<h1><a class="header" href="#parallelism" id="parallelism">Parallelism</a></h1>
+<p>By late 90s - early 2000s CPUs started to get too close to the physical limitation of transistors and manufacturers couldn't &quot;just&quot; make their product faster, the solution: more cores.<br />
+Nowadays almost all devices come with multiple cores, it would be a shame to use just one.<br />
+In ECS there's two big ways to split work across cores: running systems on separate threads or using a parallel iterator, we call these two methods &quot;outer-parallelism&quot; and &quot;inner-parallelism&quot; respectively.</p>
+<h3><a class="header" href="#outer-parallelism" id="outer-parallelism">Outer-parallelism</a></h3>
+<p>We'll start by the most simple one to use. So simple that there's nothing to do, workloads handle all the work for you. We even almost used multiple threads in the <a href="going-further/../fundamentals/systems.html">Systems chapter</a>.<br />
+As long as the &quot;parallel&quot; feature is set, workloads will try to execute systems as much in parallel as possible. There is a set of rules that defines the &quot;possible&quot;:</p>
+<ul>
+<li>systems accessing <code>AllStorages</code> stop all multithreading (this is a limit of the current implementation and will be relaxed a little)</li>
+<li>there can't be any other access during an exclusive access, so <code>&amp;mut T</code> will block <code>T</code> threading</li>
+</ul>
+<p>When you make a workload all systems in it will be checked and batches (group of systems that don't conflict) will be created.</p>
+<p>There's just a problem with this approach, what happens when I want to force two non conflicting systems to run one after the other? <code>FakeBorrow</code> is here just for that, it'll mimic a system accessing the storage exclusively without actually doing it.</p>
+<h3><a class="header" href="#inner-parallelism" id="inner-parallelism">Inner-parallelism</a></h3>
+<p>While parallel iterators require us to modify our code it's just a matter or adding <code>par_</code> to <code>iter</code>.
+Don't forget to import rayon, <code>par_iter</code> will return a <code>ParallelIterator</code>.</p>
+<p>Example:</p>
+<pre><code class="language-rust noplaypen">use rayon::prelude::*;
+
+#[system(ManyUsize)]
+fn run(usizes: &amp;mut usize) {
+    usizes.par_iter().for_each(|i| {
+        // -- snip --
+    });
+}
+</code></pre>
+<p>Don't replace all your <code>iter</code> just yet however. Using a parallel iterator comes with an upfront cost that have to be compensate before reaching the same speed as its sequential counterpart. That's why they're useful when you have a lot of values.</p>
+<hr />
+<p>In the next chapter we'll see how packs leverage <code>SparseSet</code> to add functionalities and/or gain performance.</p>
+<h1><a class="header" href="#packs" id="packs">Packs</a></h1>
+<p><code>SparseSet</code>s are very flexible, so much so that we can use their internal layout to encode additional information.</p>
+<p>Quick overview compared to non packed storage:
+||Tight|Loose|Free|Update
+:---:|:---:|:---:|:---:|:---:
+Iteration speed|++|+|+|-
+Add/Remove speed|-|-|-|-
+Memory|same|same|+|same
+Special||||tracks insertion / modification / deletion</p>
+<h3><a class="header" href="#tight" id="tight">Tight</a></h3>
+<p>Let's start with the one offering the most performance, so good your CPU will stop taking so many vacations.<br />
+Tight pack moves components of an entity that contains all components in the pack to the front of the <code>data</code> vector. The nice thing is: a single storage contains all components of this type so it's always tightly packed.<br />
+To tightly pack multiple storages we use the <code>tight_pack</code> method on multiple views.<br />
+Let's go through an example:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+
+let (mut entities, mut usizes, mut u32s) = world.borrow::&lt;(EntitiesMut, &amp;mut usize, &amp;mut u32)&gt;();
+(&amp;mut usizes, &amp;mut u32s).tight_pack();
+
+let entity0 = entities.add_entity(&amp;mut usizes, 0);
+let entity1 = entities.add_entity((&amp;mut usizes, &amp;mut u32s), (1, 11));
+</code></pre>
+<p>After adding <code>entity0</code>, <code>usize</code>'s storage looks like this (version omitted):</p>
+<pre><code>sparse: [0]
+dense: [0]
+data: [0]
+</code></pre>
+<p>Let's add <code>entity1</code>:</p>
+<pre><code>sparse: [1, 0]
+dense: [1, 0]
+data: [1, 0]
+</code></pre>
+<p>We still have <code>sparse</code> and <code>dense</code> looking at each other and <code>entity1</code> has its component at index <code>0</code> since it contains both <code>usize</code> and <code>u32</code> as opposed to <code>entity0</code>.</p>
+<p>This is very powerful because when we iterate <code>usize</code> and <code>u32</code> we don't have to check anything. We know all entities matching these components are in the range <code>0..=last_packed</code>.</p>
+<p>There's also one more advantage, we can iterate over chunks of these components with <code>into_chunk</code> and <code>into_chunk_exact</code>.</p>
+<p>The big downside is we have to access and pass all packed storages when doing any action on the storages that might affect the order. Adding/removing or deleting components for example. This is also the reason <code>Remove</code> and <code>Delete</code> look so bad.</p>
+<h3><a class="header" href="#loose" id="loose">Loose</a></h3>
+<p>Packs comes with one more limitation: we can't pack multiple times the same storage (<a href="https://github.com/leudz/shipyard/issues/47">for now</a>).<br />
+Loose pack let us pack again a tightly packed storage or just pack two storages without shuffling one of them.<br />
+This time we'll need the storages we want to pack, the other storages and call <code>loose_pack</code>.<br />
+<code>loose_pack</code> needs all storages present in the pack (like <code>tight_pack</code>) but also that we specify which storages are going to be modified and which ones won't.<br />
+Example:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+
+let (mut entities, mut usizes, mut u32s) = world.borrow::&lt;(EntitiesMut, &amp;mut usize, &amp;mut u32)&gt;();
+// usize's storage will be modified
+LoosePack::&lt;(usize,)&gt;::loose_pack((&amp;mut usizes, &amp;mut u32s));
+
+let entity0 = entities.add_entity(&amp;mut usizes, 0);
+let entity1 = entities.add_entity((&amp;mut usizes, &amp;mut u32s), (1, 11));
+</code></pre>
+<p>Here we packed <code>usize</code>'s storage while <code>u32</code> isn't affected.<br />
+After both entities have been added this is what <code>usize</code>'s storage look like:</p>
+<pre><code>sparse: [1, 0]
+dense: [1, 0]
+data: [1, 0]
+</code></pre>
+<p>While the iteration speed isn't as good as tight pack, it's still better than no pack at all.</p>
+<h3><a class="header" href="#update" id="update">Update</a></h3>
+<p>This pack doesn't increase iteration speed but rather slows it down. That's not its purpose however, it records which components have been <em>inserted</em>, <em>modified</em> and <em>deleted</em>.<br />
+To get these functionalities, use <code>update_pack</code> on a single storage.<br />
+The storage will start recording <em>inserted</em> components, we can then access them with <code>inserted</code> and <code>inserted_mut</code>. Note that mutating a component in the <em>inserted</em> section won't put it in the <em>modified</em> section. To move the <em>inserted</em> components we have to call <code>clear_inserted</code>, this will move them in the <em>neutral</em> section.<br />
+<em>modified</em> components can be accessed with <code>modified</code>/<code>modified_mut</code> and cleared with <code>clear_modified</code>. <em>modified</em> is a bit misleading, components are flagged as soon as they're mutably accessed.<br />
+Be careful, removed components won't be recorded, only <em>deleted</em> ones. They can be accessed with <code>deleted</code>, it contains both the components and the id of the entity they belonged to.<br />
+We also can take ownership of these deleted components with <code>take_deleted</code>.</p>
+<h3><a class="header" href="#free" id="free">Free</a></h3>
+<p>Free pack isn't implemented yet (<a href="https://github.com/leudz/shipyard/issues/56">#56</a>), it'll use an external vector to keep track of which entities have the required storages, speeding up iteration while not reordering any storage.</p>
+<hr />
+<p>In the next chapter we'll look into <code>!Send</code>/<code>!Sync</code> components and unique storage.</p>
+<h1><a class="header" href="#other-components-and-storages" id="other-components-and-storages">Other Components and Storages</a></h1>
+<p>So far we've only seen how to interact with <code>Send + Sync</code> components using the default storage, that's not always what we need.</p>
+<h3><a class="header" href="#send-and-sync-components" id="send-and-sync-components"><code>!Send</code> and <code>!Sync</code> Components</a></h3>
+<p><code>World</code> can store <code>!Send</code> and/or <code>!Sync</code> components once the corresponding feature is set but they come with limitations:</p>
+<ul>
+<li><code>!Send</code> storages can only be added in <code>World</code>'s thread.</li>
+<li><code>Send + !Sync</code> components can only be accessed from one thread at a time.</li>
+<li><code>!Send + Sync</code> components can only be accessed immutably from other threads.</li>
+<li><code>!Send + !Sync</code> components can only be accessed in the thread they were added in.</li>
+</ul>
+<p>With these constrains you can run into issues like unrunnable systems or undeletable entities, be careful.
+As a rule of thumb, try to call <code>World::run_default</code> and <code>run_workload</code> from <code>World</code>'s thread.</p>
+<p>To help with <code>!Send</code> storages, all systems borrowing <code>AllStorages</code> will run in the thread <code>World::run_default</code> or <code>run_workload</code> is called in.</p>
+<p>These storages are accessed with <code>NonSend</code>, <code>NonSync</code> and <code>NonSendSync</code>, for example:</p>
+<pre><code class="language-rust noplaypen">#[system(Counted)]
+fn run(rcs: NonSendSync&lt;&amp;Rc&lt;usize&gt;&gt;) {}
+</code></pre>
+<h3><a class="header" href="#unique-storages" id="unique-storages">Unique Storages</a></h3>
+<p>When we known there'll only ever be exactly one instance of some component, it doesn't need to be attached to an entity. It also works well as global data while still being sound.</p>
+<p>As opposed to other storages, unique storages have to be initialized with <code>add_unique</code>. This will both create the storage and initialize its only component. We can then access this component with <code>Unique</code>.<br />
+Example:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+world.add_unique(Camera::new());
+let camera = world.borrow::&lt;Unique&lt;Camera&gt;&gt;();
+</code></pre>
+<p>Note that <code>Unique</code> and <code>!Send</code>/<code>!Sync</code> components can be used together, in this case <code>Unique</code> will envelop <code>NonSend</code>/<code>NonSync</code> or <code>NonSendSync</code>.</p>
+<h3><a class="header" href="#tag-components" id="tag-components">Tag Components</a></h3>
+<p>Components don't always need data, they're sometimes just there to flag entities. We can use empty structs to take care of this job.<br />
+Example:</p>
+<pre><code class="language-rust noplaypen">struct Dirty;
+#[system(FlagDirty)]
+fn run(dirties: &amp;mut Dirty) { ... }
+</code></pre>
+<h1><a class="header" href="#might-want-to-try_-or-go-_unchecked" id="might-want-to-try_-or-go-_unchecked">Might want to try_ or go _unchecked</a></h1>
+<p>These two are a prefix and a suffix respectively.</p>
+<h3><a class="header" href="#unchecked" id="unchecked">Unchecked</a></h3>
+<p>Some functions come with an <code>_unchecked</code> version. They might be memory unsafe and marked as such or &quot;just&quot; logically unsafe, in this case using it in the wrong conditions will result in unexpected behavior but won't cause Undefined Behavior.</p>
+<p>Currently the only function of this kind is <code>Entities::delete_unchecked</code> but others will likely join it, like <a href="https://github.com/leudz/shipyard/issues/50"><code>add_component_unchecked</code></a>.</p>
+<h3><a class="header" href="#try" id="try">Try</a></h3>
+<p>All functions provided by shipyard should either not fail in any circumstances or have a <code>try_</code> alternative. If it isn't the case, please open an issue or PR.</p>
+<p>Fun fact: most functions are implemented as <code>try_function().unwrap()</code>.</p>
+<h1><a class="header" href="#syntactic-peculiarities" id="syntactic-peculiarities">Syntactic Peculiarities</a></h1>
+<p>Some parts of Rust are less used than others, let's look into some of them.</p>
+<h3><a class="header" href="#tuples" id="tuples">Tuples</a></h3>
+<p>Shipyard uses tuples a lot, sometimes even for a single element. There are two main reasons:</p>
+<ul>
+<li>the elements could be any type including a tuple, for example <code>loose_pack</code>. If <code>T</code> was allowed as input type then <code>T</code> could be <code>(usize, u32)</code>, that's not what we want though, we want them to be two different elements.</li>
+<li>the compiler can't read our mind (yet), for example <code>remove</code>. <code>Remove</code> is implemented for up to ten storages but we can <code>remove</code> up to the number of storages we passed. We might have to pass 5 storages to the function because they are packed but only want to <code>remove</code> from 2.</li>
+</ul>
+<h3><a class="header" href="#double-mut" id="double-mut">Double <code>mut</code></a></h3>
+<p>So what about with the double <code>mut</code> in systems definitions (e.g. <strong>mut</strong> empties: &amp;<strong>mut</strong> Empty)?</p>
+<ol>
+<li>We need to tell Rust that we want a mutable binding, to take a mutable reference for example, this is the first <code>mut</code>.</li>
+<li>We need to tell Shipyard that we want unique access to this storage (<code>ViewMut</code>, as opposed to <code>View</code>), this is the second <code>mut</code>.</li>
+</ol>
+<h3><a class="header" href="#ref-mut" id="ref-mut"><code>ref mut</code></a></h3>
+<p>Some functions, like <code>get</code>, can return an immutable or mutable result based on which reference you use and default to immutable if you don't specify.<br />
+Let's look at an example:</p>
+<pre><code class="language-rust noplaypen">#[system(RefMut)]
+fn run(mut usizes: &amp;mut usize) {
+    let result: Result&lt;&amp;usize, _&gt; = usizes.get(id);
+}
+</code></pre>
+<p>We can force the compiler to give us a <code>&amp;mut usize</code> with a few methods, one of them is to use <code>ref mut</code>:</p>
+<pre><code class="language-rust noplaypen">#[system(RefMut)]
+fn run(ref mut usizes: &amp;mut usize) {
+    let result: Result&lt;&amp;usize, _&gt; = usizes.get(id);
+}
+</code></pre>
+<h3><a class="header" href="#ref" id="ref"><code>ref</code></a></h3>
+<p>Since Rust will default to immutable return by default, we don't have to use <code>ref</code> for the same reason as <code>ref mut</code> but we can use it for something else:</p>
+<pre><code class="language-rust noplaypen">#[system(Ref)]
+fn run(usizes: &amp;usize, u32s: &amp;u32) {
+    (usizes, u32s).get(id);
+}
+</code></pre>
+<p>This example doesn't compile since <code>get</code> has to use references. We could take the views by reference at each call of course but when we'd have a bunch of them:</p>
+<pre><code class="language-rust noplaypen">#[system(Ref)]
+fn run(usizes: &amp;usize, u32s: &amp;u32) {
+    (&amp;usizes, &amp;u32s).get(id);
+    (&amp;usizes, &amp;u32s).get(id);
+    (&amp;usizes, &amp;u32s).get(id);
+    (&amp;usizes, &amp;u32s).get(id);
+}
+</code></pre>
+<p>It can be easier to just use <code>ref</code>:</p>
+<pre><code>#[system(Ref)]
+fn run(ref usizes: &amp;usize, ref u32s: &amp;u32) {
+    (usizes, u32s).get(id);
+    (usizes, u32s).get(id);
+    (usizes, u32s).get(id);
+    (usizes, u32s).get(id);
+}
+</code></pre>
+<h1><a class="header" href="#recipes" id="recipes">Recipes</a></h1>
+<p>Cool patterns you may be interested in.</p>
+<h1><a class="header" href="#building-an-entity-hierarchy-with-shipyard" id="building-an-entity-hierarchy-with-shipyard">Building an Entity Hierarchy with Shipyard</a></h1>
+<p>Hierarchies are a very commonly used organizational structure in game development. An important example is a transform hierarchy: child entities move along with their parents.</p>
+<p>How can we build such a hierarchy of entities in shipyard?</p>
+<p>One method is to use a secondary data structure which represents the hierarchy.</p>
+<p>But an ECS already has all the means to store data: components. So let's use them!</p>
+<p>Below you won't find a ready-to-use solution, rather some hints on how to start with your own hierarchy implementation, tailored to your requirements.</p>
+<h2><a class="header" href="#parents-and-children" id="parents-and-children">Parents and Children</a></h2>
+<p>Think about the different roles an entity can take in a hierarchy. It can be:</p>
+<ul>
+<li>a parent (root node),</li>
+<li>a parent and a child (intermediate node),</li>
+<li>a child (leaf node).</li>
+</ul>
+<p>From this we can derive two simple, composable component types:</p>
+<p>A <code>Parent</code> component stores the number of its children and the first child:</p>
+<pre><code class="language-rust noplaypen">struct Parent {
+    num_children: usize,
+    first_child: EntityId,
+}
+</code></pre>
+<p>A <code>Child</code> component links to its parent as well as neighbor siblings:</p>
+<pre><code class="language-rust noplaypen">struct Child {
+    parent: EntityId,
+    prev: EntityId,
+    next: EntityId,
+}
+</code></pre>
+<p>As you can see, we simply store <code>EntityId</code>s to refer to other entities inside a component.</p>
+<p>Note that <code>Option</code>s are completely avoided by making the sibling chain circular:</p>
+<ul>
+<li>Last child's <code>next</code> points to the first child.</li>
+<li>First child's <code>prev</code> points to the last child.</li>
+</ul>
+<p>Our entire hierarchy structure resides only in <code>Parent</code> and <code>Child</code> components – nice!</p>
+<p>But it'd be a hassle to create them manually each time you want to insert an entity into the tree.</p>
+<h2><a class="header" href="#lets-make-it-convenient" id="lets-make-it-convenient">Let's make it convenient</a></h2>
+<p>We begin with two useful methods in a trait declaration:</p>
+<pre><code class="language-rust noplaypen">trait Hierarchy {
+    // Removes the child status of an entity.
+    fn detach(&amp;mut self, id: EntityId);
+
+    // Attaches an entity as a child to a given parent entity.
+    fn attach(&amp;mut self, id: EntityId, parent: EntityId);
+}
+</code></pre>
+<p>With these, you'll be able to not only insert new entities into the tree but also move a whole subtree – a child with all its descendants – to another parent.</p>
+<p>Since we need access to <code>EntitiesViewMut</code> as well as our hierarchy component storages, we implement the <code>Hierarchy</code> trait for the type <code>(EntitiesViewMut&lt;'_&gt;, ViewMut&lt;'_, Parent&gt;, ViewMut&lt;'_, Child&gt;)</code>.</p>
+<pre><code class="language-rust noplaypen">fn detach(&amp;mut self, id: EntityId) {
+    let (_, parents, children) = self;
+    // remove the Child component - if nonexistent, do nothing
+    if let Some(child) = children.remove(id) {
+        // retrieve and update Parent component from ancestor
+        let parent = &amp;mut parents[child.parent];
+        parent.num_children -= 1;
+
+        if parent.num_children == 0 {
+            // if the number of children is zero, the Parent component must be removed
+            parents.remove(child.parent);
+        } else {
+            // the ancestor still has children, and we have to change some linking
+            // check if we have to change first_child
+            if parent.first_child == id {
+                parent.first_child = child.next;
+            }
+            // remove the detached child from the sibling chain
+            children[child.prev].next = child.next;
+            children[child.next].prev = child.prev;
+        }
+    }
+}
+</code></pre>
+<p>Before we move on to <code>attach</code>, let's make some observations.</p>
+<p>We use indexing on <code>parents</code> and <code>children</code> but if the entity doesn't have the component it'll <code>unwrap</code>.<br />
+We don't have to worry as long as we only use the methods in our <code>Hierarchy</code> trait.</p>
+<p>If you accidentally delete hierarchy components in other places without changing the linking, things will go fatally wrong. If you want to catch these errors you might want to use <code>get</code> and handle the error (for example with <code>expect</code>).</p>
+<p><code>attach</code> looks like this:</p>
+<pre><code class="language-rust noplaypen">fn attach(&amp;mut self, id: EntityId, parent: EntityId) {
+    // the entity we want to attach might already be attached to another parent
+    self.detach(id);
+
+    let (entities, parents, children) = self;
+
+    // either the designated parent already has a Parent component – and thus one or more children
+    if let Ok(p) = parents.get(parent) {
+        // increase the parent's children counter
+        p.num_children += 1;
+
+        // get the ids of the new previous and next siblings of our new child
+        let prev = children[p.first_child].prev;
+        let next = p.first_child;
+
+        // change the linking
+        children[prev].next = id;
+        children[next].prev = id;
+
+        // add the Child component to the new entity
+        entities.add_component(children, Child { parent, prev, next }, id);
+    } else {
+        // in this case our designated parent is missing a Parent component
+        // we don't need to change any links, just insert both components
+        entities.add_component(
+            children,
+            Child {
+                parent,
+                prev: id,
+                next: id,
+            },
+            id,
+        );
+        entities.add_component(
+            parents,
+            Parent {
+                num_children: 1,
+                first_child: id,
+            },
+            parent,
+        );
+    }
+}
+</code></pre>
+<p>We can now add another handy method to our trait:</p>
+<pre><code class="language-rust noplaypen">// Creates a new entity and attaches it to the given parent.
+fn attach_new(&amp;mut self, parent: EntityId) -&gt; EntityId;`
+</code></pre>
+<pre><code class="language-rust noplaypen">fn attach_new(&amp;mut self, parent: EntityId) -&gt; EntityId {
+    let id = self.0.add_entity((), ());
+    self.attach(id, parent);
+    id
+}
+</code></pre>
+<p>And lastly a simple usage example:</p>
+<pre><code class="language-rust noplaypen">let world = World::new();
+
+let mut hierarchy = world.borrow::&lt;(EntitiesMut, &amp;mut Parent, &amp;mut Child)&gt;();
+
+let root1 = hierarchy.0.add_entity((), ());
+let root2 = hierarchy.0.add_entity((), ());
+
+let e1 = hierarchy.attach_new(root1);
+let e2 = hierarchy.attach_new(e1);
+let e3 = hierarchy.attach_new(e1);
+let e4 = hierarchy.attach_new(e3);
+
+hierarchy.attach(e3, root2);
+</code></pre>
+<h2><a class="header" href="#traversing-the-hierarchy" id="traversing-the-hierarchy">Traversing the hierarchy</a></h2>
+<p>There are different ways the hierarchy can be queried.</p>
+<p>For example, we may want to know the parent of a given entity. Doing this is simply done by inspecting its child component - if there is one.</p>
+<p>However, sometimes you might need</p>
+<ul>
+<li>all children,</li>
+<li>all ancestors,</li>
+<li>or all descendants of a given entity.</li>
+</ul>
+<p>A perfect use case for iterators! An iterator has to implement the <code>next</code> method from the <code>Iterator</code> trait.</p>
+<p>We start with a <code>ChildrenIter</code>, which is pretty straightforward:</p>
+<pre><code class="language-rust noplaypen">struct ChildrenIter&lt;C&gt; {
+    get_child: C,
+    cursor: (EntityId, usize),
+}
+
+impl&lt;'a, C&gt; Iterator for ChildrenIter&lt;C&gt;
+where
+    C: GetComponent&lt;Out = &amp;'a Child&gt; + Copy,
+{
+    type Item = EntityId;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        if self.cursor.1 &gt; 0 {
+            self.cursor.1 -= 1;
+            let ret = self.cursor.0;
+            self.cursor.0 = self.get_child.get(self.cursor.0).unwrap().next;
+            Some(ret)
+        } else {
+            None
+        }
+    }
+}
+</code></pre>
+<p>Note that we don't implement <code>Iterator</code> for <code>ViewMut&lt;Child&gt;</code> directly, but for a type that implements the <code>GetComponent</code> trait. This way, our iterator can be used with <code>View</code> as well as <code>ViewMut</code>.</p>
+<p>The next one is the <code>AncestorIter</code>:</p>
+<pre><code class="language-rust noplaypen">struct AncestorIter&lt;C&gt; {
+    get_child: C,
+    cursor: EntityId,
+}
+
+impl&lt;'a, C&gt; Iterator for AncestorIter&lt;C&gt;
+where
+    C: GetComponent&lt;Out = &amp;'a Child&gt; + Copy,
+{
+    type Item = EntityId;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        self.get_child.get(self.cursor).ok().map(|child| {
+            self.cursor = child.parent;
+            child.parent
+        })
+    }
+}
+</code></pre>
+<p>Easy.</p>
+<p><code>DescendantIter</code> will be a bit more complicated. We choose to implement a depth-first variant using recursion.</p>
+<p>It is based on the code for the <code>ChildrenIter</code> but comes with an additional stack to keep track of the current level the cursor is in:</p>
+<ul>
+<li>Push a new level to the stack if we encounter a <code>Parent</code> component.</li>
+<li>Pop the last level from the stack whenever we run out of siblings, then carry on where we left off.</li>
+</ul>
+<pre><code class="language-rust noplaypen">struct DescendantsIter&lt;P, C&gt; {
+    get_parent: P,
+    get_child: C,
+    cursors: Vec&lt;(EntityId, usize)&gt;,
+}
+
+impl&lt;'a, P, C&gt; Iterator for DescendantsIter&lt;P, C&gt;
+where
+    P: GetComponent&lt;Out = &amp;'a Parent&gt; + Copy,
+    C: GetComponent&lt;Out = &amp;'a Child&gt; + Copy,
+{
+    type Item = EntityId;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        if let Some(cursor) = self.cursors.last_mut() {
+            if cursor.1 &gt; 0 {
+                cursor.1 -= 1;
+                let ret = cursor.0;
+                cursor.0 = self.get_child.get(cursor.0).unwrap().next;
+                if let Ok(parent) = self.get_parent.get(ret) {
+                    self.cursors.push((parent.first_child, parent.num_children));
+                }
+                Some(ret)
+            } else {
+                self.cursors.pop();
+                self.next()
+            }
+        } else {
+            None
+        }
+    }
+}
+</code></pre>
+<p>What we still need to do is to implement a simple trait with methods that return nicely initialized <code>*Iter</code> structs for us:</p>
+<pre><code class="language-rust noplaypen">trait HierarchyIter&lt;'a, P, C&gt; {
+    fn ancestors(&amp;self, id: EntityId) -&gt; AncestorIter&lt;C&gt;;
+    fn children(&amp;self, id: EntityId) -&gt; ChildrenIter&lt;C&gt;;
+    fn descendants(&amp;self, id: EntityId) -&gt; DescendantsIter&lt;P, C&gt;;
+}
+
+impl&lt;'a, P, C&gt; HierarchyIter&lt;'a, P, C&gt; for (P, C)
+where
+    P: GetComponent&lt;Out = &amp;'a Parent&gt; + Copy,
+    C: GetComponent&lt;Out = &amp;'a Child&gt; + Copy,
+{
+    fn ancestors(&amp;self, id: EntityId) -&gt; AncestorIter&lt;C&gt; {
+        let (_, children) = self;
+
+        AncestorIter {
+            get_child: *children,
+            cursor: id,
+        }
+    }
+
+    fn children(&amp;self, id: EntityId) -&gt; ChildrenIter&lt;C&gt; {
+        let (parents, children) = self;
+
+        ChildrenIter {
+            get_child: *children,
+            cursor: parents
+                .get(id)
+                .map_or((id, 0), |parent| (parent.first_child, parent.num_children)),
+        }
+    }
+
+    fn descendants(&amp;self, id: EntityId) -&gt; DescendantsIter&lt;P, C&gt; {
+        let (parents, children) = self;
+
+        DescendantsIter {
+            get_parent: *parents,
+            get_child: *children,
+            cursors: parents.get(id).map_or_else(
+                |_| Vec::new(),
+                |parent| vec![(parent.first_child, parent.num_children)],
+            ),
+        }
+    }
+}
+</code></pre>
+<p>Cool. Let's extend the former usage example into a little test.</p>
+<pre><code class="language-rust noplaypen">#[test]
+fn test_hierarchy() {
+    let world = World::new();
+
+    let mut hierarchy = world.borrow::&lt;(EntitiesMut, &amp;mut Parent, &amp;mut Child)&gt;();
+
+    let root1 = hierarchy.0.add_entity((), ());
+    let root2 = hierarchy.0.add_entity((), ());
+
+    let e1 = hierarchy.attach_new(root1);
+    let e2 = hierarchy.attach_new(e1);
+    let e3 = hierarchy.attach_new(e1);
+    let e4 = hierarchy.attach_new(e3);
+
+    hierarchy.attach(e3, root2);
+
+    let e5 = hierarchy.attach_new(e3);
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .children(e3)
+        .eq([e4, e5].iter().cloned()));
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .ancestors(e4)
+        .eq([e3, root2].iter().cloned()));
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .descendants(root1)
+        .eq([e1, e2].iter().cloned()));
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .descendants(root2)
+        .eq([e3, e4, e5].iter().cloned()));
+}
+</code></pre>
+<h2><a class="header" href="#removing-entities-from-the-hierarchy" id="removing-entities-from-the-hierarchy">Removing entities from the hierarchy</a></h2>
+<p>Removing an entity from the hierarchy means removing its <code>Parent</code> and <code>Child</code> components.</p>
+<p>To remove an entity's <code>Child</code> component, we can simply reuse <code>detach</code>. Removing its <code>Parent</code> component must be done with caution. This entity's children now become orphans – we have to detach them as well.</p>
+<p>Both methods can be added to our <code>Hierarchy</code> trait:</p>
+<pre><code class="language-rust noplaypen">fn remove(&amp;mut self, id: EntityId) {
+    self.detach(id);
+
+    let children = (&amp;self.1, &amp;self.2).children(id).collect::&lt;Vec&lt;_&gt;&gt;();
+    for child_id in children {
+        self.detach(child_id);
+    }
+    self.1.remove(id);
+}
+</code></pre>
+<p>A method that removes a whole subtree is easy to write by making use of recursion again:</p>
+<pre><code class="language-rust noplaypen">fn remove_all(&amp;mut self, id: EntityId) {
+    let (_, parents, children) = self;
+
+    for child_id in (&amp;*parents, &amp;*children).children(id).collect::&lt;Vec&lt;_&gt;&gt;() {
+        self.remove_all(child_id);
+    }
+    self.remove(id);
+}
+</code></pre>
+<p>That's it! We can now add the following code to the end of our test from the last chapter:</p>
+<pre><code class="language-rust noplaypen">hierarchy.detach(e1);
+
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).descendants(root1).eq(None));
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).ancestors(e1).eq(None));
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).children(e1).eq([e2].iter().cloned()));
+
+hierarchy.remove(e1);
+
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).children(e1).eq(None));
+
+hierarchy.remove_all(root2);
+
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).descendants(root2).eq(None));
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).descendants(e3).eq(None));
+assert!((&amp;hierarchy.1, &amp;hierarchy.2).ancestors(e5).eq(None));
+</code></pre>
+<h2><a class="header" href="#sorting" id="sorting">Sorting</a></h2>
+<p>The order between siblings may or may not play a role in your project.</p>
+<p>However, a simple sorting for children can be done in two steps:</p>
+<ul>
+<li>Collect all children into a <code>Vec</code> and sort it.</li>
+<li>Adjust the linking in the <code>Child</code> components according to the sorted list.</li>
+</ul>
+<p>We can add this method to the <code>Hierarchy</code> trait:</p>
+<pre><code class="language-rust noplaypen">fn sort_children_by&lt;F&gt;(&amp;mut self, id: EntityId, compare: F)
+where
+    F: FnMut(&amp;EntityId, &amp;EntityId) -&gt; std::cmp::Ordering,
+{
+    let (_, parents, children_storage) = self;
+
+    let mut children = (&amp;*parents, &amp;*children_storage)
+        .children(id)
+        .collect::&lt;Vec&lt;EntityId&gt;&gt;();
+    if children.len() &gt; 1 {
+        children.sort_by(compare);
+        // set first_child in Parent component
+        parents[id].first_child = children[0];
+        // loop through children and relink them
+        for i in 0..children.len() - 1 {
+            children_storage[children[i]].next = children[i + 1];
+            children_storage[children[i + 1]].prev = children[i];
+        }
+        children_storage[children[0]].prev = *children.last().unwrap();
+        children_storage[*children.last().unwrap()].next = children[0];
+    }
+}
+</code></pre>
+<p>Again a small test demonstrates the usage:</p>
+<pre><code class="language-rust noplaypen">#[test]
+fn test_sorting() {
+    let world = World::new();
+
+    let (mut hierarchy, mut usizes) = world.borrow::&lt;((EntitiesMut, &amp;mut Parent, &amp;mut Child), &amp;mut usize)&gt;();
+
+    let root = hierarchy.0.add_entity((), ());
+
+    let e0 = hierarchy.attach_new(root);
+    let e1 = hierarchy.attach_new(root);
+    let e2 = hierarchy.attach_new(root);
+    let e3 = hierarchy.attach_new(root);
+    let e4 = hierarchy.attach_new(root);
+
+    hierarchy.0.add_component(&amp;mut usizes, 7, e0);
+    hierarchy.0.add_component(&amp;mut usizes, 5, e1);
+    hierarchy.0.add_component(&amp;mut usizes, 6, e2);
+    hierarchy.0.add_component(&amp;mut usizes, 1, e3);
+    hierarchy.0.add_component(&amp;mut usizes, 3, e4);
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .children(root)
+        .eq([e0, e1, e2, e3, e4].iter().cloned()));
+
+    hierarchy.sort_children_by(root, |a, b| usizes[*a].cmp(&amp;usizes[*b]));
+
+    assert!((&amp;hierarchy.1, &amp;hierarchy.2)
+        .children(root)
+        .eq([e3, e4, e1, e2, e0].iter().cloned()));
+}
+</code></pre>
+<h2><a class="header" href="#do-it-yourself" id="do-it-yourself">Do it yourself!</a></h2>
+<p>We recommend that you build your own hierarchy system fitted to your specific needs. In deviation of the above code examples you may want:</p>
+<ul>
+<li>a single hierarchy component instead of two,</li>
+<li>breadth-first instead of depth-first traversal,</li>
+<li>different sorting methods,</li>
+<li>etc.</li>
+</ul>
+<h2><a class="header" href="#further-reading" id="further-reading">Further reading</a></h2>
+<p>These notes are based on ideas presented in a highly recommended article by skypjack: <a href="https://skypjack.github.io/2019-06-25-ecs-baf-part-4/">ECS back and forth</a>.</p>
+<h1><a class="header" href="#pilgrimage" id="pilgrimage">Pilgrimage</a></h1>
+<p>Links and information not directly related to shipyard.</p>
+<h1><a class="header" href="#different-types-of-ecs" id="different-types-of-ecs">Different Types of ECS</a></h1>
+<p>ECS is a pattern and there's no right or wrong way to implement it, even the pattern doesn't have a clear definition.<br />
+Shipyard is a <code>SparseSet</code> based ECS, so is <a href="https://github.com/skypjack/entt">EnTT</a> but there are multiple other implementations, here's a few ones:</p>
+<h3><a class="header" href="#archetypes" id="archetypes">Archetypes</a></h3>
+<p>Let's start with the most popular one, thanks to Unity.<br />
+This implementation groups entities and their components based on which one they have. For example all entities with a <code>usize</code> and <code>u32</code> components will be stored together in memory.<br />
+When an entity gains or loses a component it moves from an archetype to another.<br />
+<a href="https://unity.com/dots">Unity's dots</a>, <a href="https://github.com/SanderMertens/flecs/">Flecs</a> or <a href="https://github.com/TomGillen/legion">Legion</a> are implemented using archetypes.</p>
+<h3><a class="header" href="#bitset" id="bitset">Bitset</a></h3>
+<p>This is how <a href="https://github.com/amethyst/specs">Specs</a> is implemented.<br />
+Each component has a storage and a bitset, when an entity has a component the bit at its index is set.<br />
+Iterating becomes a bitsets iteration, we <code>or</code> them which yields the entities with all required components.</p>
+<h3><a class="header" href="#option" id="option">Option</a></h3>
+<p>A simple ECS implementation can be made with <code>Option</code>, each component has a <code>Vec&lt;Option&lt;T&gt;&gt;</code> storage.<br />
+The components default to <code>None</code>, when we add a component it switches to <code>Some</code> at the entity's index.<br />
+When iterating we simply have to go through all requested storages and check if the components are <code>Some</code>.</p>
+<h1><a class="header" href="#more-resources" id="more-resources">More Resources</a></h1>
+<p><a href="https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/">Packs</a>, the whole series is a good read<br />
+<a href="https://www.youtube.com/watch?v=W3aieHjyNvw">Timothy Ford's GDC talk on ECS usage in Overwatch</a><br />
+<a href="https://www.youtube.com/watch?v=aKLntZcp27M">Catherine West's closing keynote on using the ECS pattern in Rust</a><br />
+<a href="https://github.com/SanderMertens/ecs-faq">Sander Mertens's ECS FAQ</a></p>
+<h1><a class="header" href="#contributors" id="contributors">Contributors</a></h1>
+<p><a href="https://github.com/dakom">dakom - David Komer</a><br />
+<a href="https://github.com/eldyer">eldyer</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
